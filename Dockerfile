@@ -32,4 +32,6 @@ EXPOSE 8888/tcp
 LABEL VERSION="1.0.0" \
   COURSE="M220P"
 
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["run.py"]

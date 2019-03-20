@@ -1,0 +1,28 @@
+# Files to be ignored by Docker
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Git specifics
+.git
+.gitignore
+
+# Config files
+mflix-python/.ini
+mflix-python/dotini_*
+
+# reStructuredText/Markdown files
+mflix-python/README.rst
+CONTRIBUTING.md
+CHANGELOG.md
+README.md
+LICENSE.txt
+
+# Custom Scripts
+
+# Directories
+.idea
+.vscode
+mflix-python/venv/
+mflix-python/.cache/

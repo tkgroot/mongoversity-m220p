@@ -55,8 +55,8 @@ class TestConfig(Config):
 
 #### Other file updates
 
-Change the files `run.py` and `tests/conftest.py` to use the configurations from
-`config.py` like is shown below.
+Change the files `run.py`, `factory.py` and `tests/conftest.py` to use the
+configurations from `config.py` like is shown below.
 
 ```diff
  from mflix.factory import create_app
@@ -80,6 +80,20 @@ Change the files `run.py` and `tests/conftest.py` to use the configurations from
 ```
 
 > The term `ProductionConfig` is used in the context of the M220P course.
+
+```diff
+-def create_app():
++def create_app(config):
+
+     APP_DIR = os.path.abspath(os.path.dirname(__file__))
+     STATIC_FOLDER = os.path.join(APP_DIR, 'build/static')
+@@ -31,6 +31,8 @@
+     app = Flask(__name__, static_folder=STATIC_FOLDER,
+                 template_folder=TEMPLATE_FOLDER,
+                 )
++
++    app.config.from_object(config)
+```
 
 ```diff
  import pytest
@@ -200,7 +214,6 @@ docker container exec -it m220p mongo "mongodb+srv://[user]:[password]@[cluster]
 docker container exec -it m220p mongorestore --drop --gzip --uri \
 "mongodb+srv://[username]:[password]@[cluster]" data
 ```
-
 
 ## Final Note
 

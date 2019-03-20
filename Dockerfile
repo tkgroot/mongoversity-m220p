@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   | tee /etc/apt/sources.list.d/mongodb-org-${MONGODB_PACKAGE_VERSION}.list \
   && apt-get update && apt-get install --no-install-recommends -y \
   mongodb-org-shell=${MONGODB_VERSION} \
+  mongodb-org-tools=${MONGODB_VERSION} \
   && apt-get remove -y \
   dirmngr \
   gnupg2 \
